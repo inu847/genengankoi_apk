@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Genengan Koi</string>
+    <string name="title_home">Home</string>
+    <string name="title_product">Product</string>
+    <string name="title_lelang">Lelang</string>
+    <string name="title_rekpen">Rekpen</string>
+</resources>
