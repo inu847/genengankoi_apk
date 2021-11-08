@@ -9,6 +9,5 @@ abstract class ProductViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
         value = "This is Product Fragment"
     }
-
     val text: LiveData<String> = _text
 }

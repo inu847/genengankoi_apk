@@ -17,7 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-    private val list = ArrayList<ProductResponse>()
+//    private val list = ArrayList<ProductResponse>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,24 +32,24 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val rvProduct = findViewById<RecyclerView>(R.id.rvProduct)
-        rvProduct.setHasFixedSize(true)
-        rvProduct.layoutManager = LinearLayoutManager(this)
-        RetrofitClient.instance.getData().enqueue(object : Callback<ArrayList<ProductResponse>>{
-            override fun onResponse(
-                call: Call<ArrayList<ProductResponse>>,
-                response: Response<ArrayList<ProductResponse>>
-            ) {
-                val responseCode = response.code().toString()
-                response.body()?.let { list.addAll(it) }
-                val adapter = ProductAdapter(list)
-                rvProduct.adapter = adapter
-            }
-
-            override fun onFailure(call: Call<ArrayList<ProductResponse>>, t: Throwable) {
-
-            }
-
-        })
+//        val rvProduct = findViewById<RecyclerView>(R.id.rvProduct)
+//        rvProduct.setHasFixedSize(true)
+//        rvProduct.layoutManager = LinearLayoutManager(this)
+//        RetrofitClient.instance.getData().enqueue(object : Callback<ArrayList<ProductResponse>>{
+//            override fun onResponse(
+//                call: Call<ArrayList<ProductResponse>>,
+//                response: Response<ArrayList<ProductResponse>>
+//            ) {
+//                val responseCode = response.code().toString()
+//                response.body()?.let { list.addAll(it) }
+//                val adapter = ProductAdapter(list)
+//                rvProduct.adapter = adapter
+//            }
+//
+//            override fun onFailure(call: Call<ArrayList<ProductResponse>>, t: Throwable) {
+//
+//            }
+//
+//        })
     }
 }

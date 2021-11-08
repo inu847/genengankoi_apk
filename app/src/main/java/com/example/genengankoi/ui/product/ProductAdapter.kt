@@ -11,7 +11,7 @@ class ProductAdapter(private val list: ArrayList<ProductResponse>):RecyclerView.
     inner class ProductViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun bind(productResponse: ProductResponse){
             with(itemView){
-                val text = "data: ${productResponse.data}"
+                val text = "current_page: ${productResponse.current_page}"
                 val getId = findViewById<TextView>(R.id.product_text)
                 getId.text = text
 //                for (product in products){
