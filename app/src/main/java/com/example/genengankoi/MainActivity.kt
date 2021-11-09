@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-//        val rvProduct = findViewById<RecyclerView>(R.id.rvProduct)
+        val rvProduct = findViewById<RecyclerView>(R.id.rvProduct)
 //        rvProduct.setHasFixedSize(true)
 //        rvProduct.layoutManager = LinearLayoutManager(this)
 //        RetrofitClient.instance.getData().enqueue(object : Callback<ArrayList<ProductResponse>>{

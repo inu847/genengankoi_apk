@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.genengankoi.R
 import com.example.genengankoi.ui.RetrofitClient
@@ -18,20 +19,38 @@ import retrofit2.Response
 class ProductFragment : Fragment() {
 
     private lateinit var productViewModel: ProductViewModel
-//    private val list = ArrayList<ProductResponse>()
+    private val list = ArrayList<ProductResponse>()
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
         val root = inflater.inflate(R.layout.fragment_product, container, false)
-//        val rvProduct: RecyclerView = root.findViewById(R.id.rvProduct)
+        var rvProduct: RecyclerView = root.findViewById(R.id.rvProduct)
+//        rvProduct.setHasFixedSize(true)
+//        rvProduct.layoutManager = LinearLayoutManager(this)
         val textView: TextView = root.findViewById(R.id.text_products)
         productViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
 
+            RetrofitClient.instance.getData().enqueue(object :
+                Callback<ArrayList<ProductResponse>> {
+                override fun onResponse(
+                    call: Call<ArrayList<ProductResponse>>,
+                    response: Response<ArrayList<ProductResponse>>
+                ) {
+                    val responseCode = response.code().toString()
+//                    response.body()?.let { list.addAll(it) }
+                    val adapter = ProductAdapter(list)
+                    rvProduct.adapter = adapter
+//                    value = ProductAdapter(list).toString()
+                }
+
+                override fun onFailure(call: Call<ArrayList<ProductResponse>>, t: Throwable) {
+                }
+            })
         })
 
         return root
