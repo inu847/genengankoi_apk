@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,10 +33,11 @@ class ProductFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_product, container, false)
         var rvProduct: RecyclerView = root.findViewById(R.id.rvProduct)
 
-//        val textView: TextView = root.findViewById(R.id.text_products)
-//        productViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
+        val textView: TextView = root.findViewById(R.id.text_products)
+        productViewModel.text.observe(viewLifecycleOwner, Observer {
+            textView.text = it
+        })
+
         val service = RetrofitClient().getService();
         val call = service.getDataApi();
 
@@ -44,8 +47,8 @@ class ProductFragment : Fragment() {
                 response: Response<ProductResponseNew>
             ) {
                 if (response.code() == 200) {
-                    val getdataProd = response.body()!!
-                    val twenty = getdataProd.getData()
+                    val gdataProd = response.body()!!
+                    val twenty = gdataProd.getData()
                     val dataArrayList: List<DataItem>? = twenty
                     dataArrayList!!.size;
 

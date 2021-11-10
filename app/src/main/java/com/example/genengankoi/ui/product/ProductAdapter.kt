@@ -43,8 +43,20 @@ class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<Pro
     class NewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         fun bind(get: DataItem?) {
             val nameItem = get?.productName
-            itemView.product_text.text = nameItem
+            val price = get?.price
+            val token = get?.token
+            val qty = get?.qty
+            val gender = get?.gender
+            val size = get?.size
+            val status2 = get?.status2
 
+            itemView.product_text.text = nameItem
+            itemView.price.text = "Rp.$price"
+            itemView.token.text = token
+            itemView.qty.text = qty
+            itemView.gender.text = gender
+            itemView.size.text = size
+            itemView.status.text = status2
         }
     }
 

@@ -9,8 +9,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ProductViewModel : ViewModel() {
-    private val list = ArrayList<ProductResponse>()
-
     private val _text = MutableLiveData<String>().apply {
         value = "This is Product Fragment"
     }
