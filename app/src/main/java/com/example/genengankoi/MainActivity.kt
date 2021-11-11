@@ -1,6 +1,10 @@
 package com.example.genengankoi
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -31,24 +35,28 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val rvProduct = findViewById<RecyclerView>(R.id.rvProduct)
-//        rvProduct.setHasFixedSize(true)
-//        rvProduct.layoutManager = LinearLayoutManager(this)
-//        RetrofitClient.instance.getData().enqueue(object : Callback<ArrayList<ProductResponse>>{
-//            override fun onResponse(
-//                call: Call<ArrayList<ProductResponse>>,
-//                response: Response<ArrayList<ProductResponse>>
-//            ) {
-//                val responseCode = response.code().toString()
-//                response.body()?.let { list.addAll(it) }
-//                val adapter = ProductAdapter(list)
-//                rvProduct.adapter = adapter
-//            }
-//
-//            override fun onFailure(call: Call<ArrayList<ProductResponse>>, t: Throwable) {
-//
-//            }
-//
-//        })
+//        val appLinkIntent = intent
+//        val appLinkAction = appLinkIntent.action
+//        val appLinkData = appLinkIntent.data
     }
+
+//    override fun onNewIntent(intent: Intent) {
+//        super.onNewIntent(intent)
+//        handleIntent(intent)
+//    }
+//
+//    private fun handleIntent(intent: Intent) {
+//        val appLinkAction = intent.action
+//        val appLinkData: Uri? = intent.data
+//        if (Intent.ACTION_VIEW == appLinkAction) {
+//            appLinkData?.lastPathSegment?.also { recipeId ->
+//                Uri.parse("content://com.recipe_app/recipe/")
+//                    .buildUpon()
+//                    .appendPath(recipeId)
+//                    .build().also { appData ->
+//                        showRecipe(appData)
+//                    }
+//            }
+//        }
+//    }
 }

@@ -3,43 +3,20 @@ package com.example.genengankoi.ui.product
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.genengankoi.R
 import com.example.genengankoi.ui.product.data.DataItem
 import kotlinx.android.synthetic.main.product_item.view.*
 
 class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<ProductAdapter.NewHolder>() {
-
-//    inner class ProductViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-//        fun bind(ProductResponseNew: ProductResponseNew){
-//            with(itemView){
-//                val text = "current_page: ${ProductResponseNew.currentPage}"
-//                val getId = findViewById<TextView>(R.id.product_text)
-//                getId.text = text
-////                for (product in products){
-////                    val text = "id: ${product.id}\n"+
-////                            "title: ${product.product_name}\n"+
-////                            "size: ${product.size}\n"+
-////                            "gender: ${product.gender}\n"+
-////                            "quantity: ${product.qty}\n"+
-////                            "price: ${product.price}\n"+
-////                            "avatar: ${product.avatar}\n"+
-////                            "sizeMin: ${product.size[0]}\n"+
-////                            "sizeMax: ${product.size[1]}\n"+
-////                            "status1: ${product.status1}\n"+
-////                            "status2: ${product.status2}\n"+
-////                            "token: ${product.token}\n"+
-////                            "admin_id: ${product.admin_id}"
-////                    val getId = findViewById<TextView>(R.id.product_text)
-////                    getId.text = text
-////                }
-//            }
-//        }
-//    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
         return NewHolder(view)
     }
+
     class NewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         fun bind(get: DataItem?) {
             val nameItem = get?.productName
@@ -48,15 +25,22 @@ class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<Pro
             val qty = get?.qty
             val gender = get?.gender
             val size = get?.size
-            val status2 = get?.status2
+            var status1 = get?.status1
+            if (status1 == null){
+                status1 = "ready"
+            }else if(status1 == "keep"){
+                status1 = "booked"
+            }
+            val avatar = get?.avatar
 
             itemView.product_text.text = nameItem
+            itemView.token.text = ":\t $token"
+            itemView.qty.text = ":\t $qty"
+            itemView.gender.text = ":\t $gender"
+            itemView.size.text = ":\t $size"
+            itemView.status.text = ":\t $status1"
             itemView.price.text = "Rp.$price"
-            itemView.token.text = token
-            itemView.qty.text = qty
-            itemView.gender.text = gender
-            itemView.size.text = size
-            itemView.status.text = status2
+            itemView.avatar.loadUrl("https://img.youtube.com/vi/$avatar/mqdefault.jpg")
         }
     }
 
@@ -68,5 +52,4 @@ class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<Pro
 
 //    override fun getItemCount() = list.size
         override fun getItemCount(): Int = list?.size ?: 0
-
 }

@@ -10,7 +10,7 @@ import retrofit2.Response
 
 class ProductViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Product Fragment"
+        value = "Product List Genengan Koi"
     }
 
     val text: LiveData<String> = _text

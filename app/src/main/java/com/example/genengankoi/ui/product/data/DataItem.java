@@ -23,7 +23,7 @@ public class DataItem{
 	private String token;
 
 	@SerializedName("status1")
-	private Object status1;
+	private String status1;
 
 	@SerializedName("size")
 	private String size;
@@ -67,7 +67,7 @@ public class DataItem{
 		return token;
 	}
 
-	public Object getStatus1(){
+	public String getStatus1(){
 		return status1;
 	}
 

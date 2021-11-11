@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -31,6 +33,10 @@ class ProductFragment : Fragment() {
     ): View? {
         productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
         val root = inflater.inflate(R.layout.fragment_product, container, false)
+//        val btnBuyNow = findViewById<Button>(R.id.beli)
+//        btnBuyNow.setOnClickListener(){
+//            Toast.makeText(this, "Beli Sekarang OK!!", Toast.LENGTH_SHORT).show()
+//        }
         var rvProduct: RecyclerView = root.findViewById(R.id.rvProduct)
 
         val textView: TextView = root.findViewById(R.id.text_products)
@@ -67,16 +73,8 @@ class ProductFragment : Fragment() {
                         no += 1;
                     }
                 // End Test Looping Data
-
                 }
-//                    response.body()?.let { list.addAll(it) }
-//                    val adapter = ProductAdapter(list)
-//                    rvProduct.adapter = adapter
-//                    value = ProductAdapter(list).toString()
-
             }
-
-
 
             override fun onFailure(call: Call<ProductResponseNew>, t: Throwable) {
                 Log.d("Cek Get API Response", "Gagal Mendapatkan Data");
