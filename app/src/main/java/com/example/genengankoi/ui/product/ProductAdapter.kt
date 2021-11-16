@@ -1,11 +1,12 @@
 package com.example.genengankoi.ui.product
 
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
-import android.widget.Button
-import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.genengankoi.R
 import com.example.genengankoi.ui.product.data.DataItem
@@ -41,13 +42,17 @@ class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<Pro
             itemView.status.text = ":\t $status1"
             itemView.price.text = "Rp.$price"
             itemView.avatar.loadUrl("https://img.youtube.com/vi/$avatar/mqdefault.jpg")
+            itemView.beli.setOnClickListener {
+                Log.d("Clicked", "$nameItem is selected")
+                val url = "https://wa.me/+6283102822666?text=Untuk pemesanan *$token $nameItem* Isi format berikut%0ANama : %0AAlamat Lengkap : %0ANomor Hp: "
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+            }
         }
     }
 
     override fun onBindViewHolder(holder: NewHolder, position: Int) {
 //        holder.bind(list[position])
          holder.bind(list?.get(position));
-
     }
 
 //    override fun getItemCount() = list.size

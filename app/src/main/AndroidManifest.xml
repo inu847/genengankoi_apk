@@ -19,17 +19,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:scheme="https"
-                    android:host="wa.me"
-                    android:pathPattern="/+6283102822666?text=Untuk%20pemesanan%20*PSM110%20Mix%20Kohaku,%20Tancho,%20Utsuri%20,Kiko%206%20ekor%20size%2026%2029cm%20dengan%20harga%201000000*%20Isi%20format%20berikut%0ANama%20:%20%0AAlamat%20Lengkap%20:%20%0ANomor%20Hp%20:" />
-            </intent-filter>
         </activity>
     </application>
 

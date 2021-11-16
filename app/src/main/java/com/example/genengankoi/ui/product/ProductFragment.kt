@@ -1,5 +1,7 @@
 package com.example.genengankoi.ui.product
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +19,7 @@ import com.example.genengankoi.R
 import com.example.genengankoi.ui.RetrofitClient
 import com.example.genengankoi.ui.product.data.DataItem
 import com.example.genengankoi.ui.product.data.ProductResponseNew
+import kotlinx.android.synthetic.main.product_item.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,17 +35,12 @@ class ProductFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
-        val root = inflater.inflate(R.layout.fragment_product, container, false)
-//        val btnBuyNow = findViewById<Button>(R.id.beli)
-//        btnBuyNow.setOnClickListener(){
-//            Toast.makeText(this, "Beli Sekarang OK!!", Toast.LENGTH_SHORT).show()
-//        }
+        val root = inflater!!.inflate(R.layout.fragment_product, container, false)
         var rvProduct: RecyclerView = root.findViewById(R.id.rvProduct)
-
-        val textView: TextView = root.findViewById(R.id.text_products)
-        productViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+//        val textView: TextView = root.findViewById(R.id.text_products)
+//        productViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
 
         val service = RetrofitClient().getService();
         val call = service.getDataApi();
