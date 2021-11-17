@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/avatarDetail"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <TextView
+                android:id="@+id/product_nameDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Value Title"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvToken"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/avatarDetail"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvToken"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:background="#00bbd9"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Token"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_nameDetail" />
+
+            <TextView
+                android:id="@+id/tvQty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="8dp"
+                android:background="#00bbd9"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Qty"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvToken" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="8dp"
+                android:background="#00bbd9"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Gender"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvQty" />
+
+            <TextView
+                android:id="@+id/tvSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="8dp"
+                android:background="#00bbd9"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Size"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvGender" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="8dp"
+                android:background="#00bbd9"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Status"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSize" />
+
+            <TextView
+                android:id="@+id/tokenDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="10dp"
+                android:text=": Value Token"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_nameDetail" />
+
+            <TextView
+                android:id="@+id/qtyDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="8dp"
+                android:text=": Value Quantity"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tokenDetail" />
+
+            <TextView
+                android:id="@+id/genderDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="8dp"
+                android:text=": Value Gender"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/qtyDetail" />
+
+            <TextView
+                android:id="@+id/sizeDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="8dp"
+                android:text=": Value Size"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/genderDetail" />
+
+            <TextView
+                android:id="@+id/statusDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="8dp"
+                android:text=": Value Status"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sizeDetail" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-8dp">
+
+        <TextView
+            android:id="@+id/priceDetail"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Value Price"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Button" />
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
