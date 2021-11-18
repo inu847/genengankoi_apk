@@ -24,7 +24,7 @@ class DetailProductActivity : AppCompatActivity() {
         val avatar = message?.get(6).toString()
 
         val avatarTf = findViewById<WebView>(R.id.avatarDetail)
-        val embed = "<html><body><iframe src=\"https://www.youtube.com/embed/$avatar?autoplay=1&mute=1&playlist=$avatar&loop=1\" frameborder=\"0\"></iframe></body></html>"
+        val embed = "<html><body><iframe width=\"100%\" height=\"250px\" src=\"https://www.youtube.com/embed/$avatar?autoplay=1&mute=1&playlist=$avatar&loop=1\" frameborder=\"0\"></iframe></body></html>"
         Log.d(
             "response",
             "$embed"
@@ -33,22 +33,22 @@ class DetailProductActivity : AppCompatActivity() {
         avatarTf.loadData(encodedHtml, "text/html", "base64")
         avatarTf.settings.javaScriptEnabled = true
 
-        val nameItemTf = findViewById<TextView>(R.id.product_nameDetail).apply {
+        findViewById<TextView>(R.id.product_nameDetail).apply {
             text = nameItem
         }
-        val priceTf = findViewById<TextView>(R.id.priceDetail).apply {
+        findViewById<TextView>(R.id.priceDetail).apply {
             text = price
         }
-        val tokenTf = findViewById<TextView>(R.id.tokenDetail).apply {
+        findViewById<TextView>(R.id.tokenDetail).apply {
             text = token
         }
-        val genderTf = findViewById<TextView>(R.id.genderDetail).apply {
+        findViewById<TextView>(R.id.genderDetail).apply {
             text = gender
         }
-        val qtyTf = findViewById<TextView>(R.id.qtyDetail).apply {
+        findViewById<TextView>(R.id.qtyDetail).apply {
             text = qty
         }
-        val sizeTf = findViewById<TextView>(R.id.sizeDetail).apply {
+        findViewById<TextView>(R.id.sizeDetail).apply {
             text = size
         }
     }

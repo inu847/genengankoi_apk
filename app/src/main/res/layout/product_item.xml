@@ -6,11 +6,14 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="10dp"
-    android:id="@+id/product_card">
+    android:id="@+id/product_card"
+    app:cardBackgroundColor="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        tools:ignore="WebViewLayout">
 
         <WebView
             android:id="@+id/avatar"

@@ -18,6 +18,11 @@ class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<Pro
         return NewHolder(view)
     }
 
+    fun onCreateViewInDetail(parent: ViewGroup, viewType: Int): HolderDetailProduct {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_detail_product, parent, false)
+        return HolderDetailProduct(view)
+    }
+
     class NewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         fun bind(get: DataItem?) {
             val nameItem = get?.productName
@@ -34,7 +39,12 @@ class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<Pro
             }
             val avatar = get?.avatar
 
-            itemView.product_text.text = nameItem
+            if (nameItem?.length!! > 40){
+                val str_limit_product = nameItem?.chunked(50)
+                itemView.product_text.text = str_limit_product?.get(0)+"..."
+            }else{
+                itemView.product_text.text = nameItem
+            }
             itemView.token.text = ":\t $token"
             itemView.qty.text = ":\t $qty"
             itemView.gender.text = ":\t $gender"
@@ -55,6 +65,18 @@ class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<Pro
                 itemView.context.startActivity(intent)
             }
 
+        }
+    }
+
+    class HolderDetailProduct(itemView: View):RecyclerView.ViewHolder(itemView){
+        fun bind(get: DataItem?) {
+            val nameItem = get?.productName
+            val price = get?.price
+            val token = get?.token
+            val qty = get?.qty
+            val gender = get?.gender
+            val size = get?.size
+            var status1 = get?.status1
         }
     }
 
