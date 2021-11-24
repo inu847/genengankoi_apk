@@ -11,16 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.genengankoi.R
 import com.example.genengankoi.ui.product.data.DataItem
 import kotlinx.android.synthetic.main.product_item.view.*
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<ProductAdapter.NewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
         return NewHolder(view)
-    }
-
-    fun onCreateViewInDetail(parent: ViewGroup, viewType: Int): HolderDetailProduct {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_detail_product, parent, false)
-        return HolderDetailProduct(view)
     }
 
     class NewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
@@ -50,33 +47,23 @@ class ProductAdapter(private val list: List<DataItem>?):RecyclerView.Adapter<Pro
             itemView.gender.text = ":\t $gender"
             itemView.size.text = ":\t $size"
             itemView.status.text = ":\t $status1"
-            itemView.price.text = "Rp.$price"
+            val numberFormat = NumberFormat.getCurrencyInstance()
+            numberFormat.maximumFractionDigits = 0;
+            val priceCurrency = numberFormat.format(price?.toInt())
+            itemView.price.text = priceCurrency
             itemView.avatar.loadUrl("https://img.youtube.com/vi/$avatar/mqdefault.jpg")
             itemView.beli.setOnClickListener {
-                Log.d("Clicked", "$nameItem is selected")
                 val url = "https://wa.me/+6283102822666?text=Untuk pemesanan *$token $nameItem* Isi format berikut%0ANama : %0AAlamat Lengkap : %0ANomor Hp: "
                 itemView.context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
             }
             itemView.product_card.setOnClickListener {
                 val intent = Intent(itemView.context, DetailProductActivity::class.java).apply {
-                    val productDetail = arrayOf(nameItem, price, token, gender, qty, size, avatar)
+                    val productDetail = arrayOf(nameItem, price, token, gender, qty, size, avatar, status1)
                     putExtra(EXTRA_MESSAGE, productDetail)
                 }
                 itemView.context.startActivity(intent)
             }
 
-        }
-    }
-
-    class HolderDetailProduct(itemView: View):RecyclerView.ViewHolder(itemView){
-        fun bind(get: DataItem?) {
-            val nameItem = get?.productName
-            val price = get?.price
-            val token = get?.token
-            val qty = get?.qty
-            val gender = get?.gender
-            val size = get?.size
-            var status1 = get?.status1
         }
     }
 
