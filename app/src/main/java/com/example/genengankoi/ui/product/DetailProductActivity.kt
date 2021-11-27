@@ -26,7 +26,7 @@ class DetailProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_product)
 
-        val message = intent.getStringExtra(EXTRA_MESSAGE)
+        val message = intent.getStringArrayListExtra(EXTRA_MESSAGE)
         Log.d(
             "detail product",
             message.toString()

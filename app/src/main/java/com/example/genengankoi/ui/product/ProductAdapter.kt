@@ -1,6 +1,8 @@
 package com.example.genengankoi.ui.product
 
 import android.content.Intent
+import android.content.Intent.ACTION_SEND_MULTIPLE
+import android.content.Intent.EXTRA_STREAM
 import android.net.Uri
 import android.provider.AlarmClock
 import android.provider.AlarmClock.EXTRA_MESSAGE
@@ -65,7 +67,7 @@ class ProductAdapter(private val list: List<ProductResponseItem>?):RecyclerView.
         }
         item.product_card.setOnClickListener {
             val intent = Intent(item.context, DetailProductActivity::class.java).apply {
-                val productDetail = arrayOf(nameItem, priceCurrency, token, gender, qty, size, avatar, status1)
+                val productDetail = arrayListOf(nameItem, priceCurrency, token, gender, qty, size, avatar, status1)
                 putExtra(EXTRA_MESSAGE, productDetail)
             }
             item.context.startActivity(intent)
