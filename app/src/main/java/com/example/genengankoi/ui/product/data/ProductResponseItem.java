@@ -2,7 +2,7 @@ package com.example.genengankoi.ui.product.data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ProductsItem{
+public class ProductResponseItem{
 	@SerializedName("gender")
 	private String gender;
 
@@ -15,7 +15,7 @@ public class ProductsItem{
 	@SerializedName("status2")
 	private String status2;
 
-	@SerializedName("productName")
+	@SerializedName("product_name")
 	private String productName;
 
 	@SerializedName("token")
@@ -41,7 +41,6 @@ public class ProductsItem{
 
 	@SerializedName("id")
 	private int id;
-
 
 	public String getGender(){
 		return gender;
