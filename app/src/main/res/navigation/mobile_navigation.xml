@@ -29,4 +29,11 @@
         android:name="com.example.genengankoi.ui.rekpen.RekpenFragment"
         android:label="@string/title_rekpen"
         tools:layout="@layout/fragment_rekpen" />
+
+    <fragment
+        android:id="@+id/navigation_akun"
+        android:name="com.example.genengankoi.ui.akun.AccountFragment"
+        android:label="Akun"
+        tools:layout="@layout/account_fragment" />
+
 </navigation>

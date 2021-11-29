@@ -23,10 +23,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_product, R.id.navigation_lelang, R.id.navigation_rekpen))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-//        val appLinkIntent = intent
-//        val appLinkAction = appLinkIntent.action
-//        val appLinkData = appLinkIntent.data
     }
 
 //    override fun onNewIntent(intent: Intent) {

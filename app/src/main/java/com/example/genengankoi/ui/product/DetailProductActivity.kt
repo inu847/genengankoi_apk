@@ -44,8 +44,12 @@ class DetailProductActivity : AppCompatActivity() {
         val avatarTf = findViewById<WebView>(R.id.avatarDetail)
         val embed = "<html><body><iframe width=\"100%\" height=\"250px\" src=\"https://www.youtube.com/embed/$avatar?autoplay=1&mute=1&playlist=$avatar&loop=1\" frameborder=\"0\"></iframe></body></html>"
         val encodedHtml = Base64.encodeToString(embed.toByteArray(), Base64.NO_PADDING)
-        avatarTf.loadData(encodedHtml, "text/html", "base64")
-        avatarTf.settings.javaScriptEnabled = true
+        avatarTf.apply {
+            loadData(encodedHtml, "text/html", "base64")
+            settings.javaScriptEnabled = true
+            settings.loadWithOverviewMode = true
+            settings.useWideViewPort = false
+        }
 
         findViewById<TextView>(R.id.product_nameDetail).apply {
             text = nameItem
@@ -86,8 +90,8 @@ class DetailProductActivity : AppCompatActivity() {
                     val data = response.body()
 
                     rvDetailProduct.apply {
-                        layoutManager = LinearLayoutManager(this@DetailProductActivity, LinearLayoutManager.VERTICAL, false)
-                        adapter = ProductAdapter(data)
+                        layoutManager = LinearLayoutManager(this@DetailProductActivity, LinearLayoutManager.HORIZONTAL, false)
+                        adapter = ProductAdapter2(data)
                         setHasFixedSize(true)
                     }
                 }

@@ -4,4 +4,8 @@
     <string name="title_product">Product</string>
     <string name="title_lelang">Lelang</string>
     <string name="title_rekpen">Rekpen</string>
+    <string name="another_product">Another Product</string>
+    <string name="value_home_fragment">Value Home Fragment</string>
+    <string name="textview">TextView</string>
+    <string name="search">Search...</string>
 </resources>

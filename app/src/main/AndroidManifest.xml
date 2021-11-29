@@ -11,9 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GenenganKoi">
+        <activity android:name=".product_item2"></activity>
         <activity android:name=".ui.product.DetailProductActivity">
             <intent-filter>
                 <action android:name="com.tdgame.dorbt12.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
